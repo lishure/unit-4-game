@@ -1,0 +1,35 @@
+body {
+    background: URL("../images/background.jpg");
+}
+
+#name {
+    color: white;
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+    background: blueviolet;
+    width: 300px;
+    padding: 5px 20px 5px 20px;
+    font-family: 'Georgia', Times, 'Times New Roman', Times, serif;
+    margin: 10px 10px 5px 10px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.jumbotron {
+    width: 850px;
+    height: 280px;
+    padding: 10px;
+    margin: 5px 10px 5px 10px;
+    float: left;
+    position: relative;
+}
+
+p {
+    color:purple;
+}
