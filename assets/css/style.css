@@ -1,6 +1,6 @@
-body {
+<!---body {
     background: URL("../images/background.jpg");
-}
+}--->
 
 #name {
     color: white;
@@ -22,8 +22,8 @@ h1 {
 }
 
 .jumbotron {
-    width: 850px;
-    height: 280px;
+    width: 500px;
+    height: 350px;
     padding: 10px;
     margin: 5px 10px 5px 10px;
     float: left;
@@ -32,4 +32,9 @@ h1 {
 
 p {
     color:purple;
+}
+
+img {
+    width: 100px;
+    height: 100px;
 }
