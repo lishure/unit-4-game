@@ -1,43 +1,48 @@
-//Set at the start of the game
-$(document).ready(function() {
-	// random number loop starting at 19 up to 120
-	var randNumber= [];
-	for (var i = 19; i < 121; i++) {
-		randNumber.push(i);
-   }
-   //random number loop for the crystals starting at 1 up to 12
-	var jewels = [];
-	for (var j = 1; j < 13; j++) {
-		jewels.push(j);
-	}
+
 //start wins/loss counter at 0 and display it
 //set global variables
 var wins = 0;
 var losses = 0;
+var userScore = 0; //This is the user's total score
 var randomNumber = []; //This is the match number
 //set var for crystals
-var jewelNumbers = []; //This is the number values for the crystals
-var green;
-var blue;
-var red;
-var purple;
-var userScore = 0; //This is the user's total score
+var totalScore = 0;
+var blueCrystal = Math.floor(Math.random() * 12) + 1;
+var greenCrystal = Math.floor(Math.random() * 12) + 1;
+var redCrystal = Math.floor(Math.random() * 12) + 1;
+var purpleCrystal = Math.floor(Math.random() * 12) + 1;
 // Create variables for the places in the HTML where we want to display things.
 var winCountElement = document.getElementById("win-count");
 var loseCountElement = document.getElementById("lose-count");
 var randomNumberElement = document.getElementById("random-number");
 var userScoreElement = document.getElementById("user-score");
 //generate random number between 19-120 (use mathrandom)
-
+//This function is used to log random number
 
 //When crystals are clicked, generate and show random nuber 
 
-$(".crystals").on("click", function () {
-Math.floor(Math.random() * 121) + 19;
-$("#random-number").text(random);
+var randomNumber = Math.floor(Math.random() * 102) + 19;
+$("#random-number").text(randomNumber);
+console.log(randomNumber);
+
 //Need to start the random number at 19. 
 
-//hide random number until click event 
+//when game wins/lose,restarts game and resets random number/user counter
+function startGame() {
+   randomNumber =  Math.floor(Math.random() * 102) + 19;
+   $("#random-number").text(randomNumber);
+   userScore = 0;
+   totalScore =0;
+   blueCrystal = Math.floor(Math.random() * 12) + 1;
+   greenCrystal = Math.floor(Math.random() * 12) + 1;
+   redCrystal = Math.floor(Math.random() * 12) + 1;
+   purpleCrystal = Math.floor(Math.random() * 12) + 1;
+   
+
+   //random Number reset
+   //User score reset
+   //Jewel values reset
+};
 
 //Random assign numbers to each jewel between 1-12, randoms each game (use math random)
 //Need an array for valid numbers to be assigned to jewels
@@ -46,75 +51,90 @@ $("#random-number").text(random);
 //put something in front of math random line
 //Need to assign button ID to jewels in html
 $("#blue-crystal").on("click", function () {
-   Math.floor(Math.random() * 13);
-   $("#jewel-number").text(random);
+   totalScore += blueCrystal
+   $("#user-score").text("User Score: " + totalScore);
+   console.log(totalScore)
+   if (totalScore === randomNumber) {
+      wins++;
+      $("#win-count").html(`<h3>${wins}</h3>`);
+      console.log("yay");
+      startGame();
+   }
+   else if (totalScore > randomNumber) {
+      losses++;
+      $("#lose-count").html(`${losses}`);
+      console.log("loser");
+      startGame();
+   };
+
 });
 
-   $("#green-crystal").on("click", function () {
-      Math.floor(Math.random() * 13);
-      $("#jewel-number").text(random);
-   });
+$("#green-crystal").on("click", function () {
+   totalScore += greenCrystal
+   $("#user-score").text("User Score: " + totalScore);
+   console.log(totalScore)
+   if (totalScore === randomNumber) {
+      wins++;
+      $("#win-count").html(`<h3>${wins}</h3>`);
+      console.log("yay");
+      startGame();
+   }
+   else if (totalScore > randomNumber) {
+      losses++;
+      $("#lose-count").html(`${losses}`);
+      console.log("loser");
+      startGame();
+   }
+});
 
-      $("#red-crystal").on("click", function () {
-         Math.floor(Math.random() * 13);
-         $("#jewel-number").text(random);
-      });
+$("#red-crystal").on("click", function () {
+   totalScore += redCrystal
+   $("#user-score").text("User Score: " + totalScore);
+   console.log(totalScore)
+   if (totalScore === randomNumber) {
+      wins++;
+      $("#win-count").html(`<h3>${wins}</h3>`);
+      console.log("yay");
+      startGame();
+   }
+   else if (totalScore > randomNumber) {
+      losses++;
+      $("#lose-count").html(`${losses}`);
+      console.log("loser");
+      startGame();
 
-         $("#purple-crystal").on("click", function () {
-            Math.floor(Math.random() * 13);
-            $("#jewel-number").text(random);
-         });
-            //The above should generate random number for the jewel button
+   }
+});
 
-            //when game wins/lose,restarts game and resets random number/user counter
+$("#purple-crystal").on("click", function () {
+   totalScore += purpleCrystal
+   $("#user-score").text("User Score: " + totalScore);
+   console.log(totalScore)
+   if (totalScore === randomNumber) {
+      wins++;
+      $("#win-count").html(`<h3>${wins}</h3>`);
+      console.log("yay");
+      startGame();
+   }
+   else if (totalScore > randomNumber) {
+      losses++;
+      $("#lose-count").html(`${losses}`);
+      console.log("loser");
+      startGame();
 
+   }
+});
 
-             //Need to create add function for crystals and add to user score
-             $("#blue-crystal").on("click", function() {
+//The above should generate random number for the jewel button and logs win and losses
 
-               userScore += c1;
-               $("#user-score").html(userScore);
-            });
-      
-            $("#green-crystal").on("click", function() {
-      
-               userScore += c2;
-               $("#user-score").html(userScore);
-            });
-      
-            $("#red-crystal").on("click", function() {
-      
-               userScore += c3;
-               $("#user-score").html(userScore);
-            });
-      
-            $("#purple-crystal").on("click", function() {
-      
-               userScore += c4;
-               $("#user-score").html(userScore);
-            });
+//when game wins/lose,restarts game and resets random number/user counter
 
 
-            //need if and else statements for wins/loses
-            //Need to restart game upon winning or losing
-            if (userScore === randomNumber) {
-               wins++;
-               $("#scoreboard").html("<h2>Winner!</h2>");
-               $("#wins").html(`<h3>${wins}</h3>`);
-            }
 
-            else {
-               losses++;
-               $("#scoreboard").html("<h2>Loser!</h2>");
-               $("#losses").html(`<h3>${losses}</h3>`);
-               document.getElementById("losses").innerHTML = `<h3>${losses}</h3>`;
-            };
-               //Create and if statement for when userscore is greater than random-number, user loses and game resets.
-            
 
    //track wins and loses and displays in html
-   winsCountElement.textContent = `wins: ${wins}`;
-   loseCountElement.textContent = `losses: ${losses}`;
-   randomNumberElement.textContent = `Match: ${randomNumber}`;
-   userScoreElement.textContent = `Your Score: ${userScore}`;
+   // winCountElement.textContent = `wins: ${wins}`;
+   // loseCountElement.textContent = `losses: ${losses}`;
+   // randomNumberElement.textContent = `Match: ${randomNumber}`;
+    //userScoreElement.textContent = `Your Score: ${userScore}`;
 

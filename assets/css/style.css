@@ -1,4 +1,4 @@
-body {
+//body {
     background: URL("../images/background.jpg");
 }
 
@@ -35,7 +35,7 @@ p {
 }
 
 p2 {
-    color:white;
+    color: red;
 }
 
 img {
