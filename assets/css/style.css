@@ -1,6 +1,6 @@
-<!---body {
+body {
     background: URL("../images/background.jpg");
-}--->
+}
 
 #name {
     color: white;
@@ -32,6 +32,10 @@ h1 {
 
 p {
     color:purple;
+}
+
+p2 {
+    color:white;
 }
 
 img {
