@@ -52,11 +52,11 @@ function startGame() {
 //Need to assign button ID to jewels in html
 $("#blue-crystal").on("click", function () {
    totalScore += blueCrystal
-   $("#user-score").text("User Score: " + totalScore);
+   $("#user-score").text(totalScore);
    console.log(totalScore)
    if (totalScore === randomNumber) {
       wins++;
-      $("#win-count").html(`<h3>${wins}</h3>`);
+      $("#win-count").html(`${wins}`);
       console.log("yay");
       startGame();
    }
@@ -71,11 +71,11 @@ $("#blue-crystal").on("click", function () {
 
 $("#green-crystal").on("click", function () {
    totalScore += greenCrystal
-   $("#user-score").text("User Score: " + totalScore);
+   $("#user-score").text(totalScore);
    console.log(totalScore)
    if (totalScore === randomNumber) {
       wins++;
-      $("#win-count").html(`<h3>${wins}</h3>`);
+      $("#win-count").html(`${wins}`);
       console.log("yay");
       startGame();
    }
@@ -89,11 +89,11 @@ $("#green-crystal").on("click", function () {
 
 $("#red-crystal").on("click", function () {
    totalScore += redCrystal
-   $("#user-score").text("User Score: " + totalScore);
+   $("#user-score").text(totalScore);
    console.log(totalScore)
    if (totalScore === randomNumber) {
       wins++;
-      $("#win-count").html(`<h3>${wins}</h3>`);
+      $("#win-count").html(`${wins}`);
       console.log("yay");
       startGame();
    }
@@ -108,11 +108,11 @@ $("#red-crystal").on("click", function () {
 
 $("#purple-crystal").on("click", function () {
    totalScore += purpleCrystal
-   $("#user-score").text("User Score: " + totalScore);
+   $("#user-score").text(totalScore);
    console.log(totalScore)
    if (totalScore === randomNumber) {
       wins++;
-      $("#win-count").html(`<h3>${wins}</h3>`);
+      $("#win-count").html(`${wins}`);
       console.log("yay");
       startGame();
    }
