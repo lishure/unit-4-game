@@ -2,26 +2,28 @@
 //start wins/loss counter at 0 and display it
 //set global variables
 var wins = 0;
+$("#win-count").text(wins);
 var losses = 0;
-var userScore = 0; //This is the user's total score
-var randomNumber = []; //This is the match number
-//set var for crystals
+$("#lose-count").text(losses);
+var userScore = 0;
+$("#user-score").text(userScore); //This is the user's total score
 var totalScore = 0;
-var blueCrystal = Math.floor(Math.random() * 12) + 1;
-var greenCrystal = Math.floor(Math.random() * 12) + 1;
-var redCrystal = Math.floor(Math.random() * 12) + 1;
-var purpleCrystal = Math.floor(Math.random() * 12) + 1;
+
+//getRandom is the global function for clean code to not have to keep rewriting.
+let getRandom = function(x, y){
+   return Math.floor(Math.random() * (y - x)) + x;
+};
+//set var for crystals
+var blueCrystal = getRandom(1,12);
+var greenCrystal = getRandom(1,12);
+var redCrystal = getRandom(1,12);
+var purpleCrystal = getRandom(1,12);
 // Create variables for the places in the HTML where we want to display things.
-var winCountElement = document.getElementById("win-count");
-var loseCountElement = document.getElementById("lose-count");
-var randomNumberElement = document.getElementById("random-number");
-var userScoreElement = document.getElementById("user-score");
+
 //generate random number between 19-120 (use mathrandom)
 //This function is used to log random number
-
-//When crystals are clicked, generate and show random nuber 
-
-var randomNumber = Math.floor(Math.random() * 102) + 19;
+//When crystals are clicked, generate and show random number 
+var randomNumber = getRandom(19,120);
 $("#random-number").text(randomNumber);
 console.log(randomNumber);
 
@@ -29,24 +31,21 @@ console.log(randomNumber);
 
 //when game wins/lose,restarts game and resets random number/user counter
 function startGame() {
-   randomNumber =  Math.floor(Math.random() * 102) + 19;
+   randomNumber = getRandom(19,120);
    $("#random-number").text(randomNumber);
    userScore = 0;
-   totalScore =0;
-   blueCrystal = Math.floor(Math.random() * 12) + 1;
-   greenCrystal = Math.floor(Math.random() * 12) + 1;
-   redCrystal = Math.floor(Math.random() * 12) + 1;
-   purpleCrystal = Math.floor(Math.random() * 12) + 1;
-   
-
+   $("#user-score").text(userScore);
+   totalScore = 0;
+   blueCrystal = getRandom(1,12);
+   greenCrystal = getRandom(1,12);
+   redCrystal = getRandom(1,12);
+   purpleCrystal = getRandom(1,12); 
    //random Number reset
    //User score reset
    //Jewel values reset
 };
 
 //Random assign numbers to each jewel between 1-12, randoms each game (use math random)
-//Need an array for valid numbers to be assigned to jewels
-
 
 //put something in front of math random line
 //Need to assign button ID to jewels in html
@@ -127,14 +126,5 @@ $("#purple-crystal").on("click", function () {
 
 //The above should generate random number for the jewel button and logs win and losses
 
-//when game wins/lose,restarts game and resets random number/user counter
-
-
-
-
-   //track wins and loses and displays in html
-   // winCountElement.textContent = `wins: ${wins}`;
-   // loseCountElement.textContent = `losses: ${losses}`;
-   // randomNumberElement.textContent = `Match: ${randomNumber}`;
-    //userScoreElement.textContent = `Your Score: ${userScore}`;
+//above should include startgame(); when game wins/lose,restarts game and resets random number/user counter
 
